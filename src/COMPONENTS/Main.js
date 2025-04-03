@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import cartImg from '../UTILS/cart.png';
-import store from '../UTILS/store.png';
-import cartslice from '../UTILS/cartslice.png';
-import dispatch from '../UTILS/dispatch.png';
-import selector from '../UTILS/selector.png';
+import cartImg from "../UTILS/cart.png";
+import store from "../UTILS/store.png";
+import cartslice from "../UTILS/cartslice.png";
+import dispatch from "../UTILS/dispatch.png";
+import selector from "../UTILS/selector.png";
 
 const Main = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
+
+  const handleDownloadNotes = () => {
+    const pdfUrl = "/redux_notes.pdf"; // Ensure this file is placed in the public folder
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.setAttribute("download", "ReactNotes.pdf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="w-4/5 mx-auto min-h-screen p-8 bg-gradient-to-br from-purple-200 to-blue-200 shadow-2xl rounded-3xl border border-gray-400">
@@ -26,12 +36,13 @@ const Main = () => {
             onClick={() => navigate("/products")}
             className="ml-2 text-blue-600 font-bold cursor-pointer hover:underline hover:text-blue-800 transition-all"
           >
-            Products 
+            Products
           </span>
-            _and see it in action.
+          _and see it in action.
         </h2>
         <p className="text-gray-600 mt-2">
-          Try adding items to the cart, removing them, or clearing the cart by clicking the <strong>"Clear Cart"</strong> button.
+          Try adding items to the cart, removing them, or clearing the cart by clicking the{" "}
+          <strong>"Clear Cart"</strong> button.
         </p>
       </div>
 
@@ -123,6 +134,16 @@ const Main = () => {
         <li><strong>Selectors</strong></li>
         <li><strong>Subscription</strong></li>
       </ul>
+
+      {/* DOWNLOAD REACT NOTES */}
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={handleDownloadNotes}
+          className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+        >
+          📥 Download React Notes
+        </button>
+      </div>
 
       {/* IMAGE POPUP MODAL */}
       {selectedImage && (
