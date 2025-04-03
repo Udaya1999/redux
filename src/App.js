@@ -6,6 +6,7 @@ import Cart from "./COMPONENTS/Cart";
 import Main from "./COMPONENTS/Main";
 import appStore from "./Redux/app.Store";
 import { Provider } from "react-redux";
+import Footer from "./Footer";
 // import ReduxPage from "./pages/ReduxPage"; // The page displayed when clicking the logo
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
+      <Footer />
     </div>
     </Provider>
   );

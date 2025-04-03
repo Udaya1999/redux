@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import cartImg from "../UTILS/cart.png";
@@ -8,7 +8,6 @@ import dispatch from "../UTILS/dispatch.png";
 import selector from "../UTILS/selector.png";
 
 const Main = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
 
   const handleDownloadNotes = () => {
@@ -22,7 +21,9 @@ const Main = () => {
   };
 
   return (
-    <div className="w-4/5 mx-auto min-h-screen p-8 bg-gradient-to-br from-purple-200 to-blue-200 shadow-2xl rounded-3xl border border-gray-400">
+<div className="w-12/12 min-h-screen p-4 bg-gradient-to-br from-purple-200 to-blue-200 shadow-2xl border border-gray-400 mb-0">
+
+
       {/* HEADER */}
       <h1 className="text-5xl font-bold text-center text-purple-900 mb-8 underline decoration-wavy">
         Redux Overview
@@ -59,70 +60,35 @@ const Main = () => {
       {/* EXAMPLE: CART */}
       <h2 className="text-2xl font-semibold mt-6 text-blue-800">Example: Cart</h2>
       <p className="text-gray-700">When we click on Add, the cart should increase by +1 using Redux.</p>
-      <img
-        src={cartImg}
-        alt="Cart Example"
-        className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105"
-        onClick={() => setSelectedImage(cartImg)}
-      />
+      <img src={cartImg} alt="Cart Example" className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md" />
 
       {/* REDUX STORE */}
       <h2 className="text-2xl font-semibold mt-6 text-blue-800">Redux Store</h2>
       <p className="text-gray-700">
         The Redux store is a large object that contains application data and is kept in a global central place.
       </p>
-      <p className="text-gray-700">
-        In a React application, any component can access the data from the Redux store using selectors.
-      </p>
-      <img
-        src={store}
-        alt="Redux Store Diagram"
-        className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105"
-        onClick={() => setSelectedImage(store)}
-      />
+      <img src={store} alt="Redux Store Diagram" className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md" />
 
       {/* SLICES */}
       <h2 className="text-2xl font-semibold mt-6 text-blue-800">Slices</h2>
       <p className="text-gray-700">
         Logical partitions of the store are called <strong>Slices</strong>, which represent different sub-parts of the Redux store.
       </p>
-      <p className="text-gray-700">Examples: Cart, User, etc.</p>
-      <img
-        src={cartslice}
-        alt="Redux Slices"
-        className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105"
-        onClick={() => setSelectedImage(cartslice)}
-      />
+      <img src={cartslice} alt="Redux Slices" className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md" />
 
       {/* DISPATCHING ACTIONS */}
       <h2 className="text-2xl font-semibold mt-6 text-blue-800">Dispatching Actions</h2>
       <p className="text-gray-700">
         When we click on the Add button, we need to <strong>dispatch</strong> an action to update the state.
       </p>
-      <p className="text-gray-700">
-        This action calls a function that modifies the cart, known as a <strong>Reducer</strong>.
-      </p>
-      <img
-        src={dispatch}
-        alt="Dispatch Flow Diagram"
-        className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105"
-        onClick={() => setSelectedImage(dispatch)}
-      />
+      <img src={dispatch} alt="Dispatch Flow Diagram" className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md" />
 
       {/* SELECTORS */}
       <h2 className="text-2xl font-semibold mt-6 text-blue-800">How to Read Data from the Store</h2>
       <p className="text-gray-700">
         We use the <strong>Selector</strong> to read data from the Redux store.
       </p>
-      <p className="text-gray-700">
-        This process is called <strong>subscribing to the store</strong>, ensuring that when data updates, components using that data also update automatically.
-      </p>
-      <img
-        src={selector}
-        alt="Redux Selector"
-        className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105"
-        onClick={() => setSelectedImage(selector)}
-      />
+      <img src={selector} alt="Redux Selector" className="w-full md:w-3/4 mx-auto my-4 rounded-lg shadow-md" />
 
       {/* KEY CONCEPTS */}
       <h2 className="text-2xl font-semibold mt-6 text-blue-800">Key Concepts</h2>
@@ -144,20 +110,6 @@ const Main = () => {
           📥 Download React Notes
         </button>
       </div>
-
-      {/* IMAGE POPUP MODAL */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img
-            src={selectedImage}
-            alt="Enlarged"
-            className="max-w-3xl max-h-[80vh] rounded-xl shadow-2xl transition-transform scale-105"
-          />
-        </div>
-      )}
     </div>
   );
 };
