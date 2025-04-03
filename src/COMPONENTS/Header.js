@@ -52,6 +52,11 @@ const Header = () => {
               )}
             </Link>
           </li>
+          <li>
+            <Link to="/aboutMe" className="hover:text-yellow-400 transition duration-300">
+             About Me
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

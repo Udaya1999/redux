@@ -7,6 +7,7 @@ import Main from "./COMPONENTS/Main";
 import appStore from "./Redux/app.Store";
 import { Provider } from "react-redux";
 import Footer from "./Footer";
+import AboutMe from "./AboutMe";
 // import ReduxPage from "./pages/ReduxPage"; // The page displayed when clicking the logo
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
      <Route path="/" element={<Main />} />
     
           <Route path="/main" element={<Main />} />
+          <Route path="/aboutMe" element={<AboutMe />} />
           <Route path="/products" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
