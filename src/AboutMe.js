@@ -43,7 +43,7 @@ const AboutMe = () => {
         {/* View Resume Button */}
         <div className="flex justify-center mt-4">
           <a
-            href="/Uday_Reactjs_Dev_2.9YOE.pdf" // Ensure your resume is placed inside the 'public' folder
+            href="/Uday_Reactjs_2.10YOE.pdf" // Ensure your resume is placed inside the 'public' folder
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 font-semibold"
